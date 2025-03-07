@@ -25,11 +25,12 @@
                             </div>
 
                             <div class="mt-4">
-                                <a href="#"
+                                <a href="{{ route('products.show', $product->id) }}"
                                     class="block text-center w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
                                     Lihat Detail
                                 </a>
                             </div>
+
                         </div>
                     </div>
                 @endforeach

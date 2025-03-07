@@ -9,7 +9,10 @@ return new class extends Migration {
     {
         Schema::create('variant_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('variant_id')->constrained()->onDelete('cascade');
+            $table->foreignId('variant_id')
+                ->constrained('variants')
+                ->onDelete('cascade')
+                ->onUpdate('cascade'); // Jika variant diupdate, ikut update
             $table->string('name'); // Contoh: Merah, Biru, S, M, L
             $table->timestamps();
         });

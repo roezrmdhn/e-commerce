@@ -171,4 +171,10 @@ class ProductController extends Controller
         $products = Product::where('is_active', true)->get();
         return view('home.product.index', compact('products'));
     }
+    public function show($id)
+    {
+        $product = Product::with('productVariants.variantOption')->findOrFail($id);
+
+        return view('home.product.detail', compact('product'));
+    }
 }

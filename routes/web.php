@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 
 Route::resource('/admin/products', ProductController::class);
 Route::get('/products', [ProductController::class, 'home'])->name('products.home');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 Route::get('/', function () {
     return view('welcome');
 });

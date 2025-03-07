@@ -10,9 +10,8 @@ class Variant extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
-
     public function options()
     {
-        return $this->hasMany(VariantOption::class);
+        return $this->hasMany(VariantOption::class, 'variant_id');
     }
 }

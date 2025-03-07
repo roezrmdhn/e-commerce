@@ -9,15 +9,14 @@ class VariantOption extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['variant_id', 'name'];
+    protected $fillable = [
+        'variant_id',
+        'name'
+    ];
 
+    // Relasi ke Variant
     public function variant()
     {
         return $this->belongsTo(Variant::class);
-    }
-
-    public function products()
-    {
-        return $this->belongsToMany(Product::class, 'product_variants');
     }
 }

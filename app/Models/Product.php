@@ -9,10 +9,22 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'price', 'sku', 'stock', 'is_active', 'image'];
+    protected $fillable = [
+        'name',
+        'price',
+        'sku',
+        'stock',
+        'is_active',
+        'image'
+    ];
 
+    // Relasi ke ProductVariant
+    public function productVariants()
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
     public function variants()
     {
-        return $this->belongsToMany(VariantOption::class, 'product_variants');
+        return $this->belongsToMany(Variant::class, 'product_variants', 'product_id', 'variant_option_id');
     }
 }
